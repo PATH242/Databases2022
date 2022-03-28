@@ -26,13 +26,16 @@ create table ServiceTicket(
   serviceId INTEGER PRIMARY KEY,
   customerId INTEGER,
   carSerialNumber VARCHAR(10),
-  mechanicId INTEGER,
   serviceDate date,
   description VARCHAR(300),
-  foreign key (customerId) REFERENCES Customer(customerId),
-  foreign key (mechanicId) REFERENCES Mechanic(mechanicId)
+  foreign key (customerId) REFERENCES Customer(customerId)
 );
-
+create table mechanicService(
+  mechanicId INTEGER,
+  serviceId INTEGER,
+  foreign key (mechanicId) REFERENCES Mechanic(mechanicId),
+  foreign key(serviceId) references ServiceTicket(serviceId)
+ );
 create table CarDealerShip(
   carSerialNumber INTEGER,
   serviceId INTEGER,
