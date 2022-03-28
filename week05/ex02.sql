@@ -28,3 +28,9 @@ create table companyPlants(
    foreign key(companyId) references Company(companyId),
    foreign key(groupId) references CGroup(groupId)
  );
+create table Structure(
+   company1 INTEGER,
+   company2 INTEGER,
+   foreign key(company1) references Company(companyId),
+   foreign key(company2) references Company(companyId)
+);
