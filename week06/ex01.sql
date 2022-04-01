@@ -151,4 +151,4 @@ GROUP BY Ctg.sid;
 
 SELECT DISTINCT Ctg.sid
 FROM Catalog Ctg
-WHERE Ctg.cost >= 50
+WHERE Ctg.cost >= 50;
