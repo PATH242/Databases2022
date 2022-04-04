@@ -1,0 +1,22 @@
+For 1NF:
+we make a separate table containing:
+orderId, date, customerId, customerName, City;
+and make the initial table containing:
+orderId, itemId, itemName,quant,price;
+
+For 2NF:
+we keep the table:
+orderId, date, customerId, customerName, City;
+we make a table for:
+itemId, itemName,price;
+and make the initial table:
+orderId,itemId,quant;
+
+For 3NF:
+we make a separate table containing:
+customerId, customerName, City;
+so the first table becomes:
+orderId, date, customerId;
+and we keep:
+itemId, itemName, price;
+orderId, itemId, quant;
