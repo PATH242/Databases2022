@@ -1,4 +1,4 @@
-
+-- create a table
 CREATE TABLE customer(
     customerId INTEGER PRIMARY KEY NOT NULL DEFAULT 0,
     customerName VARCHAR(50),
@@ -55,3 +55,13 @@ SELECT SUM(quantity), SUM(quantity * price)
     FROM orderDetails LEFT OUTER JOIN item
     on orderDetails.itemId = item.itemId
     GROUP by orderId;
+Select customerName
+    FROM ( (customer LEFT OUTER JOIN orderHistory
+        on customer.customerId = orderHistory.customerId) LEFT OUTER JOIN item on
+        orderHistory.itemId = item.itemId)
+    where (SUM(quantity * price) >= (Select(SUM(quantity * price)
+    FROM orderDetails LEFT OUTER JOIN item
+    on orderDetails.itemId = item.itemId
+    GROUP by orderId;)) )
+    
+    
