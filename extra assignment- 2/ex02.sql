@@ -7,3 +7,34 @@ AND products(type) = sales(type) GROUP BY customer(name);
 
 CREATE INDEX idx_typeS ON Sales USING HASH (type);
 CREATE INDEX idx_typeP ON Products USING HASH(type);
+
+EXPLAIN ANALYZE
+SELECT *
+FROM purchases_products_list
+         JOIN products ON products.product_id = purchases_products_list.product_id
+         JOIN sales ON products.product_type = sales.sale_type;
+
+
+
+EXPLAIN ANALYZE
+SELECT *
+FROM purchases_products_list
+         JOIN products ON products.product_id = purchases_products_list.product_id
+         JOIN sales ON products.product_type = sales.sale_type;
+
+CREATE INDEX product_type_idx ON products USING hash (product_type);
+CREATE INDEX sale_type_idx ON sales USING hash (sale_type);
+
+EXPLAIN ANALYZE
+SELECT *
+FROM purchases_products_list
+         JOIN products ON products.product_id = purchases_products_list.product_id
+         JOIN sales ON products.product_type = sales.sale_type;
+
+
+
+EXPLAIN ANALYZE
+SELECT *
+FROM purchases_products_list
+         JOIN products ON products.product_id = purchases_products_list.product_id
+         JOIN sales ON products.product_type = sales.sale_type;
