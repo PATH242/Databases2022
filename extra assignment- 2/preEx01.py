@@ -22,3 +22,4 @@ for i in range(100000):
         i) + "','" + fake.name() + "','" + fake.address() + "','" + fake.text() + "')")
     con.commit()
 
+
